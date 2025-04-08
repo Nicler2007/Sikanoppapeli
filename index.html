@@ -1,1 +1,35 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8">
+  <title>Sikanoppapeli</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 30px; background-color: #f9f9f9; }
+    h1 { color: #333; }
+    .scoreboard { margin: 20px 0; }
+    .dice { font-size: 80px; margin: 20px; }
+    .btns button { margin: 10px; padding: 10px 20px; font-size: 16px; }
+    .active-player { font-weight: bold; color: green; }
+  </style>
+</head>
+<body>
+
+  <h1>Sikanoppapeli 🎲</h1>
+  <div class="scoreboard">
+    <p><span class="active-player" id="player1Name">Pelaaja 1</span>: <span id="score1">0</span> pistettä</p>
+    <p><span id="player2Name">Pelaaja 2</span>: <span id="score2">0</span> pistettä</p>
+    <p>Kierroksen pisteet: <span id="roundScore">0</span></p>
+  </div>
+
+  <div class="dice" id="dice">🎲</div>
+
+  <div class="btns">
+    <button onclick="rollDice()">Heitä noppaa</button>
+    <button onclick="hold()">Päättyy vuoro</button>
+    <button onclick="resetGame()">Aloita alusta</button>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
 

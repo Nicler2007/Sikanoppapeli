@@ -4,29 +4,50 @@
   <meta charset="UTF-8">
   <title>Sikanoppapeli</title>
   <style>
-    body { font-family: Arial; text-align: center; padding: 30px; background-color: #f9f9f9; }
+    body { font-family: Arial; text-align: center; padding: 30px; background-color: #f0f0f0; }
     h1 { color: #333; }
-    .scoreboard { margin: 20px 0; }
-    .dice { font-size: 80px; margin: 20px; }
-    .btns button { margin: 10px; padding: 10px 20px; font-size: 16px; }
+    .hidden { display: none; }
+    .dice { font-size: 60px; margin: 10px; }
+    .btns button { margin: 5px; padding: 10px 20px; font-size: 16px; }
     .active-player { font-weight: bold; color: green; }
   </style>
 </head>
 <body>
 
-  <h1>Sikanoppapeli 🎲</h1>
-  <div class="scoreboard">
-    <p><span class="active-player" id="player1Name">Pelaaja 1</span>: <span id="score1">0</span> pistettä</p>
-    <p><span id="player2Name">Pelaaja 2</span>: <span id="score2">0</span> pistettä</p>
-    <p>Kierroksen pisteet: <span id="roundScore">0</span></p>
+  <h1>Sikanoppapeli 🐷🎲</h1>
+
+  <!-- Pelimuodon valinta -->
+  <div id="modeSelect">
+    <p>Valitse pelimuoto:</p>
+    <button onclick="startGame(1)">Versio 1: Yksi noppa</button>
+    <button onclick="startGame(2)">Versio 2: Kaksi noppaa</button>
   </div>
 
-  <div class="dice" id="dice">🎲</div>
+  <!-- Pelialue versio 1 -->
+  <div id="game1" class="hidden">
+    <h2>Versio 1 – Yksi noppa</h2>
+    <p><span class="active-player" id="p1Name1">Pelaaja 1</span>: <span id="p1Score1">0</span> | <span id="p2Name1">Pelaaja 2</span>: <span id="p2Score1">0</span></p>
+    <p>Kierroksen pisteet: <span id="round1">0</span></p>
+    <div class="dice" id="die1">🎲</div>
+    <div class="btns">
+      <button onclick="rollOneDie()">Heitä</button>
+      <button onclick="holdOneDie()">Päättyy vuoro</button>
+    </div>
+  </div>
 
-  <div class="btns">
-    <button onclick="rollDice()">Heitä noppaa</button>
-    <button onclick="hold()">Päättyy vuoro</button>
-    <button onclick="resetGame()">Aloita alusta</button>
+  <!-- Pelialue versio 2 -->
+  <div id="game2" class="hidden">
+    <h2>Versio 2 – Kaksi noppaa</h2>
+    <p><span class="active-player" id="p1Name2">Pelaaja 1</span>: <span id="p1Score2">0</span> | <span id="p2Name2">Pelaaja 2</span>: <span id="p2Score2">0</span></p>
+    <p>Kierroksen pisteet: <span id="round2">0</span> | Tuplat peräkkäin: <span id="doubles">0</span></p>
+    <div>
+      <span class="dice" id="die2a">🎲</span>
+      <span class="dice" id="die2b">🎲</span>
+    </div>
+    <div class="btns">
+      <button onclick="rollTwoDice()">Heitä</button>
+      <button onclick="holdTwoDice()">Päättyy vuoro</button>
+    </div>
   </div>
 
   <script src="main.js"></script>
